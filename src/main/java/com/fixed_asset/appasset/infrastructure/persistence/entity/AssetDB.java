@@ -1,8 +1,9 @@
 package com.fixed_asset.appasset.infrastructure.persistence.entity;
 
 import com.fixed_asset.appasset.domain.ActualState;
-import jakarta.persistence.*;
 
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
