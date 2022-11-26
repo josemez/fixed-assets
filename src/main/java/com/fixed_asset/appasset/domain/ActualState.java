@@ -6,4 +6,5 @@ public enum ActualState {
     IN_REPAIR,
     AVAILABLE,
     ASSIGNED
+
 }

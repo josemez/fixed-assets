@@ -33,4 +33,17 @@ public class AssetDB {
     private ActualState state;
     private String color;
 
+    @Column(name = "person_id")
+    private Integer personaId;
+    @Column(name = "area_id")
+    private Integer areaId;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id", insertable = false, updatable = false)
+    private PersonDB person;
+
+    @ManyToOne
+    @JoinColumn(name = "area_id", insertable = false, updatable = false)
+    private AreaDB area;
+
 }
