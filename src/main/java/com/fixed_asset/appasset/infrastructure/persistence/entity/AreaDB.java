@@ -1,12 +1,22 @@
-package com.fixed_asset.appasset.domain;
+package com.fixed_asset.appasset.infrastructure.persistence.entity;
 
-public class Area {
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "areas")
+public class AreaDB {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String code;
     private String city;
 
-    public Area() {
+    @OneToMany(mappedBy = "area", cascade = {CascadeType.ALL})
+    private List<AssetDB> assets;
+
+    public AreaDB() {
     }
 
     public Integer getId() {
@@ -39,5 +49,13 @@ public class Area {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public List<AssetDB> getAssets() {
+        return assets;
+    }
+
+    public void setAssets(List<AssetDB> assets) {
+        this.assets = assets;
     }
 }
