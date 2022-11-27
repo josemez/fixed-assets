@@ -19,6 +19,8 @@ public class AreaDB {
     public AreaDB() {
     }
 
+
+
     public Integer getId() {
         return id;
     }
