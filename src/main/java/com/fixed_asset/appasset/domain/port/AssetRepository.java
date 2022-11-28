@@ -12,6 +12,7 @@ public interface AssetRepository {
     List<Asset> searchByType(String type) throws ApiException;
     List<Asset> searchByDate(LocalDateTime date) throws  ApiException;
     Asset searchBySerial(String serial) throws ApiException;
+    Asset findById(Integer id) throws ApiException;
     Asset create(Asset asset) throws ApiException;
-    Asset Update(Asset asset) throws InternalErrorException, ApiException;
+    Asset Update(Asset asset) throws ApiException;
 }
