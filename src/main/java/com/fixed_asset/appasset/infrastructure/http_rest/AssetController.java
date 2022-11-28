@@ -1,4 +1,4 @@
-package com.fixed_asset.appasset.controller;
+package com.fixed_asset.appasset.infrastructure.http_rest;
 
 import com.fixed_asset.appasset.domain.Asset;
 import com.fixed_asset.appasset.domain.services.AssetServices;

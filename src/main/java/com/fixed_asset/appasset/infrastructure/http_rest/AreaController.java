@@ -1,9 +1,7 @@
-package com.fixed_asset.appasset.controller;
+package com.fixed_asset.appasset.infrastructure.http_rest;
 
 import com.fixed_asset.appasset.domain.Area;
-import com.fixed_asset.appasset.domain.Person;
 import com.fixed_asset.appasset.domain.services.AreaServices;
-import com.fixed_asset.appasset.domain.services.PersonServices;
 import com.fixed_asset.appasset.exceptions.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
