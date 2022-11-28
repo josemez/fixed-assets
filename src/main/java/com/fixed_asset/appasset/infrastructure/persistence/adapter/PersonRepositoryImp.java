@@ -14,6 +14,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/***
+ * Adapter - Implementacion concreta de las acciones del dominio persona
+ */
 @Repository
 public class PersonRepositoryImp implements PersonRepository {
 

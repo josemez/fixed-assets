@@ -11,13 +11,27 @@ import java.util.List;
 @Service
 public class AreaServices {
 
+    /***
+     * inyeccion del port repositorio
+     */
     @Autowired
     private AreaRepository repository;
 
+    /***
+     *
+     * @param repository
+     */
     public AreaServices(AreaRepository repository) {
         this.repository = repository;
     }
 
+    /***
+     * Servicio para busqueda de areas
+     * @param page
+     * @param size
+     * @return
+     * @throws ApiException
+     */
     public List<Area> searchAll(int page, int size) throws ApiException {
         return repository.searchAll(page, size);
     }

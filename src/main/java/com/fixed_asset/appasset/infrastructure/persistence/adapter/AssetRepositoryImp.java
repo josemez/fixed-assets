@@ -16,6 +16,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/***
+ * Adapter - Implementacion concreta de las acciones del dominio activo
+ */
+
 @Repository
 public class AssetRepositoryImp implements AssetRepository {
 

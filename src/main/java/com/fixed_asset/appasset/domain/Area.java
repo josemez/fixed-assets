@@ -1,5 +1,8 @@
 package com.fixed_asset.appasset.domain;
 
+/***
+ * Entidad de dominio area
+ */
 public class Area {
     private Integer id;
     private String name;

@@ -7,6 +7,9 @@ import com.fixed_asset.appasset.exceptions.InternalErrorException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/***
+ * Puerto - Definicion de contrato de dominio para la entidad activo
+ */
 public interface AssetRepository {
     List<Asset> searchAll(int page, int size) throws ApiException;
     List<Asset> searchByType(String type) throws ApiException;
