@@ -50,7 +50,13 @@ public class AssetServices {
 
     public Asset update(Asset asset) throws ApiException {
 
-        return repository.Update(asset);
+        Asset x = repository.findById(asset.getId());
+        if (valiteDates(x.getDischargeDate(), x.getDatePurchase())) {
+            throw new InternalErrorException(ValidationError.INVALID_DATES);
+        }
+        x.setSerial(asset.getSerial());
+        x.setDischargeDate(asset.getDischargeDate());
+        return repository.Update(x);
     }
 
 
