@@ -45,4 +45,9 @@ public class AssetController {
 
         return new ResponseEntity<>(service.findByDatePurchase(localdatetime), HttpStatus.OK);
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<Asset> update(@RequestBody Asset asset) throws ApiException {
+        return new ResponseEntity<>(service.update(asset), HttpStatus.OK);
+    }
 }

@@ -44,6 +44,11 @@ public class AssetServices {
         return repository.searchByDate(date);
     }
 
+    public Asset update(Asset asset) throws ApiException {
+
+        return repository.Update(asset);
+    }
+
     private boolean valiteDates(LocalDateTime dischargeDate, LocalDateTime datePurchase) {
         return dischargeDate.isAfter(datePurchase);
     }
