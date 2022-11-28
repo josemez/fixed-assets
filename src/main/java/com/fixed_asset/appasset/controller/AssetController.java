@@ -3,18 +3,17 @@ package com.fixed_asset.appasset.controller;
 import com.fixed_asset.appasset.domain.Asset;
 import com.fixed_asset.appasset.domain.services.AssetServices;
 import com.fixed_asset.appasset.exceptions.ApiException;
+import com.fixed_asset.appasset.exceptions.BadRequestException;
+import com.fixed_asset.appasset.exceptions.ValidationError;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/fixed-asset")
@@ -25,6 +24,7 @@ public class AssetController {
 
     @PostMapping("/create")
     public ResponseEntity<Asset> create(@RequestBody Asset asset) throws ApiException {
+        assignmentValidations(asset);
         return new ResponseEntity<>(service.create(asset), HttpStatus.CREATED);
     }
 
@@ -49,5 +49,15 @@ public class AssetController {
     @PutMapping("/update")
     public ResponseEntity<Asset> update(@RequestBody Asset asset) throws ApiException {
         return new ResponseEntity<>(service.update(asset), HttpStatus.OK);
+    }
+
+    private boolean assignmentValidations(Asset asset) throws BadRequestException {
+        if (asset.getAreaId() != null && asset.getPersonId() != null) {
+            throw new BadRequestException(ValidationError.INVALID_ASSIGNMENTS);
+        }
+        if (asset.getAreaId() == null && asset.getPersonId() == null) {
+            throw new BadRequestException(ValidationError.INVALID_NO_ASSIGNMENTS);
+        }
+        return (asset.getAreaId() != null || asset.getPersonId() != null) ? true : false;
     }
 }
