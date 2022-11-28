@@ -28,6 +28,12 @@ public class AssetController {
         return new ResponseEntity<>(service.create(asset), HttpStatus.CREATED);
     }
 
+    @GetMapping("/search/{page}/{size}")
+    public ResponseEntity<List<Asset>> findByType(@PathVariable("page") int page,
+                                                @PathVariable("size") int size) throws ApiException {
+        return new ResponseEntity<>(service.searchAll(page, size), HttpStatus.OK);
+    }
+
     @GetMapping("/type/{type}")
     public ResponseEntity<List<Asset>> findByType(@PathVariable("type") String type) throws ApiException {
         return new ResponseEntity<>(service.findByType(type), HttpStatus.OK);

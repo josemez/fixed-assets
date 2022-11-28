@@ -8,6 +8,7 @@ import com.fixed_asset.appasset.exceptions.NotFoundException;
 import com.fixed_asset.appasset.infrastructure.persistence.entity.AssetDB;
 import com.fixed_asset.appasset.infrastructure.persistence.mapper.AssetMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -25,8 +26,20 @@ public class AssetRepositoryImp implements AssetRepository {
 
 
     @Override
-    public Asset searchAll() {
-        return null;
+    public List<Asset> searchAll(int page, int size) throws ApiException   {
+
+        try {
+            List<AssetDB> assets = repository.findAll(PageRequest.of(page, size)).getContent();
+            if (assets.size() < 1) {
+                throw new NotFoundException();
+            }
+            return mapper.toDomains(assets);
+        }
+        catch (NotFoundException e) {
+        throw e;
+        } catch (Exception e) {
+            throw new InternalErrorException("DATABASE_ERROR", e.getMessage());
+        }
     }
 
     @Override

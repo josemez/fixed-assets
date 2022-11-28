@@ -31,6 +31,10 @@ public class AssetServices {
         return repository.create(asset);
     }
 
+    public List<Asset> searchAll(int page, int size) throws ApiException {
+        return repository.searchAll(page, size);
+    }
+
     public List<Asset> findByType(String type) throws ApiException {
         return repository.searchByType(type);
     }
@@ -48,6 +52,8 @@ public class AssetServices {
 
         return repository.Update(asset);
     }
+
+
 
     private boolean valiteDates(LocalDateTime dischargeDate, LocalDateTime datePurchase) {
         return dischargeDate.isAfter(datePurchase);
