@@ -13,22 +13,29 @@ public class AssetDB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false, length = 50)
+
     private String name;
     private String description;
+    @Column(nullable = false, length = 50)
     private String type;
+    @Column(nullable = false, unique=true, length = 50)
     private String serial;
-    @Column(name="internal_inventory_number")
+    @Column(name="internal_inventory_number", nullable = false)
     private int internalInventoryNumber;
     private int weight;
     private int tall;
     private int width;
     private int length;
-    @Column(name="purchase_value")
+    @Column(name="purchase_value", nullable = false)
     private double purchaseValue;
-    @Column(name="date_purchase")
+    @Column(name="date_purchase", nullable = false)
+    @Convert(converter = LocalDateTimeAttributeConverter.class)
     private LocalDateTime datePurchase;
-    @Column(name="discharge_date")
+    @Column(name="discharge_date", nullable = false)
+    @Convert(converter = LocalDateTimeAttributeConverter.class)
     private LocalDateTime dischargeDate;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ActualState state;
     private String color;

@@ -2,6 +2,7 @@ package com.fixed_asset.appasset.controller;
 
 import com.fixed_asset.appasset.domain.Asset;
 import com.fixed_asset.appasset.domain.services.AssetServices;
+import com.fixed_asset.appasset.exceptions.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,9 @@ public class AssetController {
     private AssetServices service;
 
     @PostMapping("/create")
-    public ResponseEntity<Asset> Create(@RequestBody Asset asset) {
+    public ResponseEntity<Asset> Create(@RequestBody Asset asset) throws ApiException {
+
+
         return new ResponseEntity<>(service.create(asset), HttpStatus.OK);
     }
 }

@@ -1,5 +1,7 @@
 package com.fixed_asset.appasset.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 public class Asset {
@@ -22,7 +24,6 @@ public class Asset {
 
     private Integer personId;
     private Integer areaId;
-
 
 
     public Asset() {

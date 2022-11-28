@@ -2,6 +2,9 @@ package com.fixed_asset.appasset.infrastructure.persistence;
 
 import com.fixed_asset.appasset.domain.Asset;
 import com.fixed_asset.appasset.domain.port.AssetRepository;
+import com.fixed_asset.appasset.exceptions.ApiException;
+import com.fixed_asset.appasset.exceptions.BadRequestException;
+import com.fixed_asset.appasset.exceptions.InternalErrorException;
 import com.fixed_asset.appasset.infrastructure.persistence.entity.AssetDB;
 import com.fixed_asset.appasset.infrastructure.persistence.mapper.AssetMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +43,13 @@ public class AssetRepositoryImp implements AssetRepository {
     }
 
     @Override
-    public Asset create(Asset asset) {
-        AssetDB a = repository.save(mapper.toDb(asset));
-        return mapper.toDomain(a);
+    public Asset create(Asset asset) throws ApiException {
+        try {
+            AssetDB a = repository.save(mapper.toDb(asset));
+            return mapper.toDomain(a);
+        } catch (Exception e) {
+           throw new InternalErrorException("DATABASE_ERROR", e.getMessage());
+        }
     }
 
     @Override
