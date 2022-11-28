@@ -1,10 +1,11 @@
-package com.fixed_asset.appasset.infrastructure.persistence;
+package com.fixed_asset.appasset.infrastructure.persistence.adapter;
 
 import com.fixed_asset.appasset.domain.Asset;
 import com.fixed_asset.appasset.domain.port.AssetRepository;
 import com.fixed_asset.appasset.exceptions.ApiException;
 import com.fixed_asset.appasset.exceptions.InternalErrorException;
 import com.fixed_asset.appasset.exceptions.NotFoundException;
+import com.fixed_asset.appasset.infrastructure.persistence.AssetCrudRepository;
 import com.fixed_asset.appasset.infrastructure.persistence.entity.AssetDB;
 import com.fixed_asset.appasset.infrastructure.persistence.mapper.AssetMapper;
 import org.springframework.beans.factory.annotation.Autowired;

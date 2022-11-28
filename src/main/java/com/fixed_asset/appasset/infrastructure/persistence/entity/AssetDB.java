@@ -30,10 +30,8 @@ public class AssetDB {
     @Column(name="purchase_value", nullable = false)
     private double purchaseValue;
     @Column(name="date_purchase", nullable = false)
-    @Convert(converter = LocalDateTimeAttributeConverter.class)
     private LocalDateTime datePurchase;
     @Column(name="discharge_date", nullable = false)
-    @Convert(converter = LocalDateTimeAttributeConverter.class)
     private LocalDateTime dischargeDate;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
