@@ -1,5 +1,7 @@
 package com.fixed_asset.appasset.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 public class Asset {
@@ -19,6 +21,10 @@ public class Asset {
     private LocalDateTime dischargeDate;
     private ActualState state;
     private String color;
+
+    private Integer personId;
+    private Integer areaId;
+
 
     public Asset() {
     }
@@ -141,5 +147,21 @@ public class Asset {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Integer getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
+    }
+
+    public Integer getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
     }
 }
