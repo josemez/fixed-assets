@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AssetRepository {
-    Asset searchAll();
+    List<Asset> searchAll(int page, int size) throws ApiException;
     List<Asset> searchByType(String type) throws ApiException;
     List<Asset> searchByDate(LocalDateTime date) throws  ApiException;
     Asset searchBySerial(String serial) throws ApiException;
