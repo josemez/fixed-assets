@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 
+/***
+ * Entidad de dominio Activo
+ */
 public class Asset {
 
     private Integer id;

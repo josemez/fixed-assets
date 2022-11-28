@@ -15,6 +15,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/***
+ * Adapter - Implementacion concreta de las acciones del dominio area
+ */
 @Repository
 public class AreaRepositoryImp implements AreaRepository {
 

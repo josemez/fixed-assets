@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+/***
+ * Controlador del recurso area
+ * @author Jose Gomez
+ *
+ */
 @RestController
 @RequestMapping("/area")
 public class AreaController {
@@ -22,6 +26,13 @@ public class AreaController {
         this.service = service;
     }
 
+    /***
+     *
+     * @param page nuemro de la pagina
+     * @param size cantidad de registros por pagina
+     * @return Listado de areas creadas
+     * @throws ApiException
+     */
     @GetMapping("/search/{page}/{size}")
     public ResponseEntity<List<Area>> findByType(@PathVariable("page") int page,
                                                  @PathVariable("size") int size) throws ApiException {

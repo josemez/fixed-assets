@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+/***
+ *  Controlador del recurso persona
+ *  @author Jose Gomez
+ */
 @RestController
 @RequestMapping("/person")
 public class PersonController {
@@ -22,6 +25,13 @@ public class PersonController {
         this.service = service;
     }
 
+    /***
+     *
+     * @param page nuemro de la pagina
+     * @param size cantidad de registros por pagina
+     * @return Listado de personas creadas
+     * @throws ApiException
+     */
     @GetMapping("/search/{page}/{size}")
     public ResponseEntity<List<Person>> findByType(@PathVariable("page") int page,
                                                    @PathVariable("size") int size) throws ApiException {

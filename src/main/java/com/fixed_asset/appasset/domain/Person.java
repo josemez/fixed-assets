@@ -1,5 +1,8 @@
 package com.fixed_asset.appasset.domain;
 
+/***
+ * Entidad de dominio persona
+ */
 public class Person {
     private Integer id;
     private String fullName;
