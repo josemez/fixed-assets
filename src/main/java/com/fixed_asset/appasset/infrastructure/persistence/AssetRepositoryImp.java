@@ -96,7 +96,22 @@ public class AssetRepositoryImp implements AssetRepository {
     }
 
     @Override
-    public Asset Update(Asset asset) {
+    public Asset Update(Asset asset) throws ApiException {
+
+        try {
+            Optional<AssetDB> assetDB = repository.findById(asset.getId());
+            assetDB.map(t ->{
+                t.setSerial(asset.getSerial());
+                t.setDischargeDate(asset.getDischargeDate());
+                return mapper.toDomain(repository.save(t));
+            }).orElseThrow(() -> new NotFoundException() );
+
+        }
+        catch (NotFoundException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new InternalErrorException("DATABASE_ERROR", e.getMessage());
+        }
         return null;
     }
 }
